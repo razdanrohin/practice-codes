@@ -4,6 +4,7 @@ using namespace std;
 
 vector<string> split_string(string);
 
+/*this function is edited by me*/
 int simpleArraySum(vector<int> ar) {
 int sum = 0;
 while(!ar.empty())
