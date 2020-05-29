@@ -5,6 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 /*this function is edited by me*/
+/*referred from hackerrank.com*/
+
 int simpleArraySum(vector<int> ar) {
 int sum = 0;
 while(!ar.empty())
