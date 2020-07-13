@@ -1,0 +1,90 @@
+linked lists:
+------------------------------------------------------------------------------------------------------------
+singly/doubly linked lists: includes structure, traversal, insertion, deletion, and time complexity analysis
+
+// Definition for singly-linked list.
+struct SinglyListNode {
+    int val; //------------------------>value associated with the node
+
+    SinglyListNode *next;//------------>pointer to the next node
+
+    SinglyListNode(int x) : val(x), next(NULL) {}
+};
+
+
+// Addition of a value in the linked list
+1) initialize a new node with some value
+2) link the next field of the current node with prev of next
+3) link the prev field of the current node with next of prev
+
+
+// for adding a new node at the beginning/a new head
+Initialize a new node cur;
+Link the new node to our original head node head.
+Assign cur to head. 
+
+****important****
+Node* head = n;
+    while (n != NULL) { 
+        cout << n->data << " "; 
+        n = n->next; 
+    } 
+    n=head;//resetting linked list to head
+
+
+
+
+
+
+//------------------------------------------------------------------------ google coding questions--------------------------------------------------------
+Min Amplitude [New Grad] 🆕
+Ways to Split String [New Grad] 🆕
+Compare Strings [Intern]
+Largest Subarray Length K ⭐⭐⭐[Intern]
+Maximum Time ⭐⭐⭐ [Intern]
+Min Abs Difference of Server Loads ⭐ [Intern]
+Most Booked Hotel Room ⭐⭐⭐ [Intern]
+Watering Flowers [New Grad]
+Minimum Domino Rotations For Equal Row [New Grad]
+Time to Type a String
+Maximum Level Sum of a Binary Tree
+Min Number of Chairs
+K Closest Points to Origin
+Odd Even Jump
+License Key Formatting
+Unique Email Addresses
+Fruit Into Baskets
+Min Days to Bloom
+Fill Matrix
+Decreasing Subsequences
+Max Distance
+Stores and Houses
+Singapore
+
+Intern:
+
+Greatest Common Divisor
+Relative Sort
+Maximum Number of Strawberries
+New Grad:
+
+Delayed Projects
+Min Cost to Keep Employees
+Statistics
+Tokyo
+
+Intern:
+
+Pizza Shop
+Min Distance To The Farthest Node
+New grad:
+
+Cut The Cake 🆕
+Best Fruit 🆕
+Sydney
+
+Intern:
+
+Count pair of leaf nodes with specific distance 🆕
+Treasure Hunt 🆕
+Count Univalue Subtrees 🆕
