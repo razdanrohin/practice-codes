@@ -16,7 +16,17 @@ public:
             //main concept starts here
             
             // conditions to prevent overflow
-            //
+            
+            // INTMAX gives the maximum possible 32bit integer
+            //temp=rev⋅10+pop.
+            /*
+                Now here rev = (temp - pop)/10 may cause overflow
+                the reversed integer should obviously be less than INTMAX
+                
+                temp > INTMAX if ------> (rev = INTMAX*10)/10 + pop is the overflow condition
+                this overflow condition has to be considered and implemented with the code
+            
+            */
             if (rev > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0;
             if (rev < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;
             //------------------------------------------------------------------
