@@ -1,0 +1,205 @@
+To be written in notes:
+-----------------------------------------------------------
+groupTransactions:
+count = dict()
+
+    for prod in transactions:
+        if prod not in count:
+            count[prod] = 0
+        count[prod] += 1
+        
+    ans = sorted(count.items(), key=lambda x:(-x[1],x[0]))
+    ans = [str(i) + " " + str(j) for i, j in ans]
+-----------------------------------------------------------
+
+def balancedSum(arr):
+    sum = 0
+    pf = [0] * len(arr)
+
+    for i in range(len(arr)):
+        sum += arr[i]
+        pf[i] = sum
+    
+    for i in range(1, len(arr)):
+        if(pf[i - 1] == sum - pf[i]):
+            return i
+-----------------------------------------------------------
+
+def minimalOperations(words):
+    ans = []
+    for w in words:
+        count = 0
+        i = 1
+        while i < len(w):
+            
+            if w[i] == w[i-1]:
+                count += 1
+                i += 2
+            else:
+                i += 1     # no: move to the next character
+        ans.append(count)
+    return ans
+-----------------------------------------------------------
+Programming Contest:
+
+int minimizeBias(vector<int> ratings) {
+    int sum = 0;
+    sort(ratings.begin(),ratings.end());
+    for(int i=0; i<ratings.size(); i+=2){
+        //this iterates through each pair
+        sum+=ratings[i+1]-ratings[i];
+    }
+    return sum;
+}
+
+
+#################################################################################################################################################################
+----------------------------------------------------------------------------------------
+For a given array of transactions, group all of the transactions by item name. Return an array of strings where each string contains the item name followed by a space and the number of associated transactions.
+
+Note: Sort the array descending by transaction count, then ascending alphabetically by item name for items with matching transaction counts.
+
+Example: transactions = ['notebook', 'notebook', 'mouse', 'keyboard', 'mouse']
+
+There are two items with 2 transactions each: 'notebook' and 'mouse'. In alphabetical order, they are 'mouse', 'notebook'. 
+There is one item with 1 transaction: 'keyboard'. 
+The return array, sorted as required, is ['mouse 2', 'notebook 2', 'keyboard 1'].
+
+
+def groupTransactions(transactions):
+    # Write your code here
+    count = dict()
+
+    for prod in transactions:
+        if prod not in count:
+            count[prod] = 0
+        count[prod] += 1
+        
+    ans = sorted(count.items(), key=lambda x: (-x[1],x[0]))
+    
+    ans = [str(i) + " " + str(j) for i, j in ans]
+    
+    return ans
+
+---------------------------------------------------------------------
+int efficientJanitor(vector<float> weight) {
+    int result = 0, low=0, high = weight.size()-1;
+
+    sort(weight.begin(),weight.end());
+    |--------->      |         <------|
+    -----------------------------------
+    while(low<high){
+        if(weight[low]+weight[high]>3.0){
+            high -=1;
+        }
+        else{
+            low+=1;
+            high-=1;
+        }
+        result++;
+    }
+    if(low==high){
+        result++;
+    }
+return result;
+}
+---------------------------------------------------------------------
+Count Duplicate Elements:
+
+
+
+----------------------------------------------------------------------------------------
+Balanced Array:
+
+Given an array of numbers, find the index of the smallest array element (the pivot), for which the sums of all elements to the left and to the right are equal. The array may not be reordered
+
+Example
+
+arr=[1,2,3,4,6]
+ 
+
+the sum of the first three elements, 1+2+3=6. The value of the last element is 6. 
+Using zero based indexing, arr[3]=4 is the pivot between the two subarrays.
+The index of the pivot is 3.
+
+
+def balancedSum(arr):
+    sum = 0
+    pf = [0] * len(arr)
+
+    for i in range(len(arr)):
+        sum += arr[i]
+        pf[i] = sum
+    
+    for i in range(1, len(arr)):
+        if(pf[i - 1] == sum - pf[i]):
+            return i
+
+----------------------------------------------------------------------------------------
+No Pairs Allowed
+
+For each word in a list of words, if any two adjacent characters are equal, change one of them. Determine the minimum number of substitutions so the final string contains no adjacent equal characters. 
+
+Example
+
+words = ['add', 'boook', 'break']
+
+ 
+
+'add': change one d (1 change)
+'boook': change the middle o (1 change)
+'break': no changes are necessary (0 changes)
+ 
+
+The return array is [1,1,0].
+
+
+def minimalOperations(words):
+    ans = []
+    for w in words:
+        count = 0
+        i = 1
+        while i < len(w):
+            # test for match
+            if w[i] == w[i-1]:
+                # yes: increment counter and skip the next character
+                count += 1
+                i += 2
+            else:
+                # no: move to the next character
+                i += 1
+        ans.append(count)
+    return ans
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Example Conference Schedule
+
+n = 3
+
+scheduleStart = [1, 1, 2]
+
+scheduleEnd = [3, 2, 4] 
+
+Using 0-based indexing, an attendee could attend any presentation alone, or both presentations 1 and 2. 
+Presentation 0 ends too late to be able to attend presentation 2 afterwards. The maximum number of presentations one person can attend is 2. 
+
+
+def minimalOperations(words):
+    ans = []
+    for w in words:
+        count = 0
+        i = 1
+        while i < len(w):
+            # test for match
+            if w[i] == w[i-1]:
+                # yes: increment counter and skip the next character
+                count += 1
+                i += 2
+            else:
+                # no: move to the next character
+                i += 1
+        ans.append(count)
+    return ans
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
